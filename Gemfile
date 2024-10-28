@@ -48,7 +48,7 @@ group :development do
 end
 
 gem "rspec-rails"
-gem "factory_bot"
+gem 'factory_bot_rails'
 gem 'faker'
 gem "simplecov", require: false, group: :test
 gem 'byebug'
@@ -56,3 +56,4 @@ gem 'phonelib'
 gem 'jwt'
 gem 'fast_jsonapi'
 gem 'kaminari'
+gem 'timecop'

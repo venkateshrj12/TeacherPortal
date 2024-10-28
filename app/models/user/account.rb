@@ -17,7 +17,8 @@ module User
 
     # callbacks
     before_validation { self.email = self.email&.downcase }
-    before_validation :assign_user_name, :validate_phone_number, :validate_email, :validate_date_of_birth
+    before_validation :assign_user_name, :validate_phone_number, :validate_email
+    validate :validate_date_of_birth
 
     private
 
@@ -25,7 +26,7 @@ module User
       return if full_phone_number.blank?
     
       unless Phonelib.valid?(full_phone_number)
-        errors.add(:full_phone_number, "Invalid or Unrecognized Phone Number")
+        errors.add(:base, "Invalid or Unrecognized Phone Number")
         return
       end
     
@@ -41,12 +42,12 @@ module User
       if self.email.nil?
         return self.errors
       elsif !email.match?(email_regexp)
-        return errors.add(:email, "Invalid Email")
+        return errors.add(:base, "Invalid Email")
       end
     end
 
     def validate_date_of_birth
-      unless self.date_of_birth <  Date.today - 18.years
+      unless self.date_of_birth.present? && (self.date_of_birth <  Date.today - 18.years)
         errors.add(:base, "Age must be at least 18 years old to create an account of teacher")
       end
     end

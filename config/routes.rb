@@ -10,7 +10,12 @@ Rails.application.routes.draw do
   
   namespace :user do
     resources :login
-    resources :accounts
+    resources :accounts do
+      collection do
+        patch :update
+        delete :destroy
+      end
+    end
   end
 
   # this route should be at the end to give the error for invalid route

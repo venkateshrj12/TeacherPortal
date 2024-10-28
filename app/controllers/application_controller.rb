@@ -2,7 +2,7 @@ class ApplicationController < ActionController::API
   before_action :set_pagination_data
 
   def not_found
-    render json: { error: 'not_found' }, status: :not_found
+    render json: { errors: ['Page not found'] }, status: :not_found
   end
 
   def validate_jwt

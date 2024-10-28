@@ -2,18 +2,12 @@
 require 'spec_helper'
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
-require 'shoulda/matchers'
 require 'factory_bot'
 require 'securerandom'
 require 'faker'
 require 'support/factory_bot'
-require 'support/database_cleaner'
-require "mock_redis"
-
 require 'simplecov'
-require 'database_cleaner/active_record'
 
-DatabaseCleaner.strategy = :truncation
 SimpleCov.start
 
 ENV['RAILS_ENV'] ||= 'test'
@@ -81,4 +75,8 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+end
+
+def json_response
+  JSON.parse(response.body)
 end

@@ -1,7 +1,6 @@
 module User
   class AccountsController < User::ApplicationController
     before_action :validate_jwt, except: :create
-    before_action :set_user_account, only: %i[ show update destroy ]
 
     # GET /user/accounts
     def index
@@ -16,44 +15,42 @@ module User
 
     # GET /user/accounts/1
     def show
-      render json: @user_account, serializer: AccountSerializer
+      @user_account = User::Account.find_by(id: params[:id])
+      if @user_account
+        render json: AccountSerializer.new(@user_account).serializable_hash
+      else
+        render json:  { errors: ['Account not found'] }, status: :not_found
+      end
     end
 
     # POST /user/accounts
     def create #signup
-      begin
-        @user_account = User::Account.new(user_account_params)
-        if @user_account.save
-          expiration = Time.now + 30.days
-          auth_token = ::JsonWebToken.encode({id: @user_account.id}, expiration)
-          render json: AccountSerializer.new(@user_account, meta: {auth_token: auth_token}), status: :created
-        else
-          render json: {errors: @user_account.errors.full_messages}, status: :unprocessable_entity
-        end
-      rescue StandardError => e
-        render json: {errors: [e.message]}, status: :unprocessable_entity
+      @user_account = User::Account.new(user_account_params)
+      if @user_account.save
+        expiration = Time.now + 30.days
+        auth_token = ::JsonWebToken.encode({id: @user_account.id}, expiration)
+        render json: AccountSerializer.new(@user_account, meta: {auth_token: auth_token}), status: :created
+      else
+        render json: {errors: @user_account.errors.full_messages}, status: :unprocessable_entity
       end
     end
 
     # PATCH/PUT /user/accounts/1
     def update
-      if @user_account.update(user_account_params)
-        render json: @user_account
+      if @current_user.update(user_account_params)
+        render json: AccountSerializer.new(@current_user).serializable_hash
       else
-        render json: @user_account.errors, status: :unprocessable_entity
+        render json: {errors: @current_user.errors.full_messages}, status: :unprocessable_entity
       end
     end
 
     # DELETE /user/accounts/1
     def destroy
-      @user_account.destroy!
+      @current_user&.destroy!
+      render json: {messages: ["Account deleted successfully"]}, status: :ok
     end
 
     private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user_account
-      @user_account = User::Account.find(params[:id])
-    end
 
     # Only allow a list of trusted parameters through.
     def user_account_params
