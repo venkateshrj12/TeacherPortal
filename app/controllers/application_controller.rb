@@ -31,6 +31,7 @@ class ApplicationController < ActionController::API
   
     {
       page: @page,
+      per_page: @per_page,
       records: records_count,
       total_records: total_records,
       total_pages: records_count.zero? ? 0 : (total_records.to_f / records_count).ceil

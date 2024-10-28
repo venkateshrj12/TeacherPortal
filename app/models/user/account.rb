@@ -3,6 +3,9 @@ module User
     self.table_name = :user_accounts
     has_secure_password
 
+    # associations
+    has_many :students, class_name: "Student", foreign_key: :user_account_id, dependent: :destroy
+
     enum gender: { male: 'Male', female: 'Female', other: 'Other' }.freeze
     enum role: { teacher: 0, principal: 1 }.freeze
 

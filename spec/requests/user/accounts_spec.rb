@@ -9,7 +9,7 @@ RSpec.describe "/user/accounts", type: :request do
   end
   let(:valid_attributes) { attributes_for(:account, full_name: "New user") }
 
-  let(:invalid_attributes) { attributes_for(:account, email: "Invalid email") }
+  let(:invalid_attributes) { attributes_for(:invalid_account) }
 
   describe "GET /index" do
     it "renders a successful response" do

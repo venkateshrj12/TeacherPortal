@@ -7,7 +7,10 @@ require 'securerandom'
 require 'faker'
 require 'support/factory_bot'
 require 'simplecov'
+require 'support/database_cleaner'
+require 'database_cleaner/active_record'
 
+DatabaseCleaner.strategy = :truncation
 SimpleCov.start
 
 ENV['RAILS_ENV'] ||= 'test'
