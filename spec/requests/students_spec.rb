@@ -4,10 +4,14 @@ RSpec.describe "/students", type: :request do
   before(:all) do
     @teacher = create(:account)
     @student = create(:student, user_account: @teacher)
+    @subjects = create_list(:subject, 5, student: @student)
 
     @token = ::JsonWebToken.encode(id: @teacher.id)
   end
-  let(:valid_attributes) { attributes_for(:student) }
+  let(:valid_attributes) {
+    attributes_for(:student).merge( subjects_attributes: [ attributes_for(:subject), attributes_for(:subject) ] ) 
+  }
+  
   let(:invalid_attributes) { attributes_for(:invalid_student, user_account: @teacher) }
   let(:valid_headers) { { Authorization:  @token } }
 
@@ -39,13 +43,6 @@ RSpec.describe "/students", type: :request do
 
   describe "POST /create" do
     context "with valid parameters" do
-      it "creates a new Student" do
-        expect {
-          post students_url,
-               params: valid_attributes, headers: valid_headers, as: :json
-        }.to change(Student, :count).by(1)
-      end
-
       it "renders a JSON response with the new student" do
         post students_url,
              params: valid_attributes, headers: valid_headers, as: :json

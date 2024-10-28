@@ -25,7 +25,7 @@ class StudentsController < ApplicationController
     if @student.save
       render json: StudentSerializer.new(@student).serializable_hash, status: :created
     else
-      render json: @student.errors.full_messages, status: :unprocessable_entity
+      render json: {errors: @student.errors.full_messages}, status: :unprocessable_entity
     end
   end
 
@@ -55,7 +55,8 @@ class StudentsController < ApplicationController
     end
 
     # Only allow a list of trusted parameters through.
+    # use subjects_attributes to accept nested attributes
     def student_params
-      params.permit(:full_name).merge(user_account: @current_user)
+      params.permit(:full_name, subjects_attributes: [:id, :name, :marks, :_destroy]).merge(user_account: @current_user)
     end
 end
