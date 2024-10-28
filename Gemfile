@@ -47,3 +47,7 @@ group :development do
   gem "error_highlight", ">= 0.4.0", platforms: [:ruby]
 end
 
+gem "rspec-rails"
+gem "factory_bot"
+gem 'faker'
+gem "simplecov", require: false, group: :test

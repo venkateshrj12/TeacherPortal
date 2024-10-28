@@ -33,3 +33,5 @@
 /config/master.key
 
 /db/schema.rb
+/2
+/Gemfile.lock
