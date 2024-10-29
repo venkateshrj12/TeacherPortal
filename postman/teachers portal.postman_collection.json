@@ -1,0 +1,1388 @@
+{
+	"info": {
+		"_postman_id": "bbace5ef-a8a7-44c4-be6a-9ee8552e703f",
+		"name": "teachers portal",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25633198",
+		"_collection_link": "https://team-venkatesh-app-collection.postman.co/workspace/teacher-portal-app~60300927-bc8e-4cc1-8452-acdfe313cabc/collection/25633198-bbace5ef-a8a7-44c4-be6a-9ee8552e703f?action=share&source=collection_link&creator=25633198"
+	},
+	"item": [
+		{
+			"name": "teachers",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"login_creds\": \"@principal\", \r\n    // \"login_creds\": \"+919876543210\", \r\n    // \"login_creds\": \"principal@school.com\", \r\n    \"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/user/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"login_creds\": \"@principal\", \r\n    // \"login_creds\": \"+919876543210\", \r\n    // \"login_creds\": \"principal@school.com\", \r\n    \"password\": \"password\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/user/login",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"user",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"91456b91bdee859bfaa0789474304972\""
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "x-request-id",
+									"value": "c97c3570-4208-4df8-9ee0-9fa2f1b72d7c"
+								},
+								{
+									"key": "x-runtime",
+									"value": "1.198838"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.01, sql.active_record;dur=0.68, instantiation.active_record;dur=0.12, process_action.action_controller;dur=747.08"
+								},
+								{
+									"key": "Content-Length",
+									"value": "517"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"12\",\n        \"type\": \"logged_user\",\n        \"attributes\": {\n            \"id\": 12,\n            \"full_name\": \"School Principal\",\n            \"user_name\": \"@principal\",\n            \"full_phone_number\": \"919876543210\",\n            \"country_code\": \"91\",\n            \"phone_number\": \"9876543210\",\n            \"email\": \"principal@school.com\",\n            \"activated\": true,\n            \"last_visit_at\": null,\n            \"gender\": \"male\",\n            \"date_of_birth\": \"1990-01-01\",\n            \"role\": \"principal\",\n            \"students\": 0\n        }\n    },\n    \"meta\": {\n        \"auth_token\": \"eyJhbGciOiJIUzUxMiJ9.eyJpZCI6MTIsImV4cCI6MTczMjc3NDU5NH0.hsp3H-5YO4WnQFXvVFz9kWxR4ugnZWwIFOIKZkJPPZ2QvzUn2PmQVy32glS9gjRLIhKPLbu5ESuoCn0jafD-kw\"\n    }\n}"
+						},
+						{
+							"name": "account not found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"login_creds\": \"@prinipal\", \r\n    // \"login_creds\": \"+919876543210\", \r\n    // \"login_creds\": \"principal@school.com\", \r\n    \"password\": \"password\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/user/login",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"user",
+										"login"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "x-request-id",
+									"value": "5b13e25e-c3b4-44f0-83c0-fea0574a23c3"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.389716"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.01, sql.active_record;dur=0.23, instantiation.active_record;dur=0.04, process_action.action_controller;dur=7.55"
+								},
+								{
+									"key": "Content-Length",
+									"value": "32"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errors\": [\n        \"Account not found\"\n    ]\n}"
+						},
+						{
+							"name": "incorrect password",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"login_creds\": \"@principal\", \r\n    // \"login_creds\": \"+919876543210\", \r\n    // \"login_creds\": \"principal@school.com\", \r\n    \"password\": \"passwor\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/user/login",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"user",
+										"login"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "x-request-id",
+									"value": "1684755b-cc07-4f32-b549-5cb759195c20"
+								},
+								{
+									"key": "x-runtime",
+									"value": "1.052497"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.01, sql.active_record;dur=0.28, instantiation.active_record;dur=0.13, process_action.action_controller;dur=683.63"
+								},
+								{
+									"key": "Content-Length",
+									"value": "33"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errors\": [\n        \"Incorrect password\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "me",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{principal_token}}",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "{{teacher_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/user/me",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"me"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "me",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{principal_token}}",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{teacher_token}}",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "localhost:3000/user/me",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"user",
+										"me"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"ebd01e93858c570cca087de9a9fbde8a\""
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "x-request-id",
+									"value": "24960ff4-da4e-4459-a288-567c651959e3"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.517325"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.01, sql.active_record;dur=0.92, instantiation.active_record;dur=0.13, process_action.action_controller;dur=11.77"
+								},
+								{
+									"key": "Content-Length",
+									"value": "349"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"12\",\n        \"type\": \"logged_user\",\n        \"attributes\": {\n            \"id\": 12,\n            \"full_name\": \"School Principal\",\n            \"user_name\": \"@principal\",\n            \"full_phone_number\": \"919876543210\",\n            \"country_code\": \"91\",\n            \"phone_number\": \"9876543210\",\n            \"email\": \"principal@school.com\",\n            \"activated\": true,\n            \"last_visit_at\": null,\n            \"gender\": \"male\",\n            \"date_of_birth\": \"1990-01-01\",\n            \"role\": \"principal\",\n            \"students\": 0\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "create teacher account",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{principal_token}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{teacher_token}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"full_name\": \"teacher11@gmail.com\",\r\n    \"email\": \"teacher11@gmail.com\",\r\n    \"password\": \"password\",\r\n    \"password_confirmation\": \"password\",\r\n    \"gender\": \"Male\",\r\n    \"date_of_birth\": \"05-04-2000\",\r\n    \"role\": \"teacher\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/user/accounts",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"accounts"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "create teacher",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{principal_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"full_name\": \"Teacher10\",\r\n    \"email\": \"teacher10@gmail.com\",\r\n    \"password\": \"password\",\r\n    \"password_confirmation\": \"password\",\r\n    \"gender\": \"Male\",\r\n    \"date_of_birth\": \"05-04-2000\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/user/accounts",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"user",
+										"accounts"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"f3e4ec68b7b564d48daebadb9924d4ac\""
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "x-request-id",
+									"value": "94ffb6b8-60e5-402d-b1c6-36616fd2e8db"
+								},
+								{
+									"key": "x-runtime",
+									"value": "1.316348"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.04, sql.active_record;dur=16.85, instantiation.active_record;dur=0.25, unpermitted_parameters.action_controller;dur=0.02, transaction.active_record;dur=118.38, process_action.action_controller;dur=809.54"
+								},
+								{
+									"key": "Content-Length",
+									"value": "322"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"15\",\n        \"type\": \"account\",\n        \"attributes\": {\n            \"id\": 15,\n            \"full_name\": \"Teacher10\",\n            \"user_name\": \"@teacher1021675\",\n            \"full_phone_number\": null,\n            \"country_code\": null,\n            \"phone_number\": null,\n            \"email\": \"teacher10@gmail.com\",\n            \"activated\": true,\n            \"last_visit_at\": null,\n            \"gender\": \"male\",\n            \"date_of_birth\": \"2000-04-05\",\n            \"role\": \"teacher\",\n            \"students\": 0\n        }\n    }\n}"
+						},
+						{
+							"name": "authorization error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{principal_token}}",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "Authorization",
+										"value": "{{teacher_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"full_name\": \"Teacher10\",\r\n    \"email\": \"teacher10@gmail.com\",\r\n    \"password\": \"password\",\r\n    \"password_confirmation\": \"password\",\r\n    \"gender\": \"Male\",\r\n    \"date_of_birth\": \"05-04-2000\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/user/accounts",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"user",
+										"accounts"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "x-request-id",
+									"value": "6dd8f40f-9f3c-4a15-9131-dce7338a153f"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.607053"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.03, sql.active_record;dur=0.21, instantiation.active_record;dur=0.10, halted_callback.action_controller;dur=0.01, process_action.action_controller;dur=6.56"
+								},
+								{
+									"key": "Content-Length",
+									"value": "57"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errors\": [\n        \"You dont have permission to do this action\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "teachers list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{principal_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/user/accounts?page=1&per_page=10",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"accounts"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "per_page",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "teachers list",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{principal_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:3000/user/accounts?page=1&per_page=10",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"user",
+										"accounts"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "per_page",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"ef9216f26cc83fd1438e37faa97557f8\""
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "x-request-id",
+									"value": "ff62886c-2e8e-43f2-bc5e-7ce67cb9f83f"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.789074"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.01, sql.active_record;dur=17.38, instantiation.active_record;dur=1.00, process_action.action_controller;dur=169.87"
+								},
+								{
+									"key": "Content-Length",
+									"value": "3371"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"pagination_details\": {\n        \"page\": 1,\n        \"per_page\": 10,\n        \"records\": 10,\n        \"total_records\": 11,\n        \"total_pages\": 2\n    },\n    \"data\": [\n        {\n            \"id\": \"2\",\n            \"type\": \"account\",\n            \"attributes\": {\n                \"id\": 2,\n                \"full_name\": \"test\",\n                \"user_name\": \"@test17072\",\n                \"full_phone_number\": null,\n                \"country_code\": null,\n                \"phone_number\": null,\n                \"email\": \"test1@gmail.com\",\n                \"activated\": true,\n                \"last_visit_at\": null,\n                \"gender\": \"male\",\n                \"date_of_birth\": \"2000-04-05\",\n                \"role\": \"teacher\",\n                \"students\": 1\n            }\n        },\n        {\n            \"id\": \"3\",\n            \"type\": \"account\",\n            \"attributes\": {\n                \"id\": 3,\n                \"full_name\": \"Gustavo McKenzie\",\n                \"user_name\": \"@columbus\",\n                \"full_phone_number\": \"916751982293\",\n                \"country_code\": \"91\",\n                \"phone_number\": \"6751982293\",\n                \"email\": \"leticia_dibbert@dubuque.example\",\n                \"activated\": true,\n                \"last_visit_at\": null,\n                \"gender\": \"male\",\n                \"date_of_birth\": \"1979-11-25\",\n                \"role\": \"teacher\",\n                \"students\": 0\n            }\n        },\n        {\n            \"id\": \"4\",\n            \"type\": \"account\",\n            \"attributes\": {\n                \"id\": 4,\n                \"full_name\": \"Akiko Lueilwitz\",\n                \"user_name\": \"@daren.okeefe\",\n                \"full_phone_number\": \"919932285085\",\n                \"country_code\": \"91\",\n                \"phone_number\": \"9932285085\",\n                \"email\": \"dionna.jaskolski@wilderman.example\",\n                \"activated\": true,\n                \"last_visit_at\": null,\n                \"gender\": \"other\",\n                \"date_of_birth\": \"1977-04-26\",\n                \"role\": \"teacher\",\n                \"students\": 0\n            }\n        },\n        {\n            \"id\": \"5\",\n            \"type\": \"account\",\n            \"attributes\": {\n                \"id\": 5,\n                \"full_name\": \"test\",\n                \"user_name\": \"@test23642\",\n                \"full_phone_number\": null,\n                \"country_code\": null,\n                \"phone_number\": null,\n                \"email\": \"test@gmail.com\",\n                \"activated\": true,\n                \"last_visit_at\": null,\n                \"gender\": \"male\",\n                \"date_of_birth\": \"2000-04-05\",\n                \"role\": \"teacher\",\n                \"students\": 2\n            }\n        },\n        {\n            \"id\": \"6\",\n            \"type\": \"account\",\n            \"attributes\": {\n                \"id\": 6,\n                \"full_name\": \"Prof. Eric Prohaska\",\n                \"user_name\": \"@shira.konopelski\",\n                \"full_phone_number\": \"919775154900\",\n                \"country_code\": \"91\",\n                \"phone_number\": \"9775154900\",\n                \"email\": \"genevive@kuhlman-frami.example\",\n                \"activated\": true,\n                \"last_visit_at\": null,\n                \"gender\": \"male\",\n                \"date_of_birth\": \"1971-11-15\",\n                \"role\": \"teacher\",\n                \"students\": 0\n            }\n        },\n        {\n            \"id\": \"7\",\n            \"type\": \"account\",\n            \"attributes\": {\n                \"id\": 7,\n                \"full_name\": \"Rep. Rima Rohan\",\n                \"user_name\": \"@josue.gerhold\",\n                \"full_phone_number\": \"918242484898\",\n                \"country_code\": \"91\",\n                \"phone_number\": \"8242484898\",\n                \"email\": \"shea_conroy@metz.test\",\n                \"activated\": true,\n                \"last_visit_at\": null,\n                \"gender\": \"male\",\n                \"date_of_birth\": \"2006-09-21\",\n                \"role\": \"teacher\",\n                \"students\": 0\n            }\n        },\n        {\n            \"id\": \"8\",\n            \"type\": \"account\",\n            \"attributes\": {\n                \"id\": 8,\n                \"full_name\": \"Fr. Nova Wehner\",\n                \"user_name\": \"@dan\",\n                \"full_phone_number\": \"919663589657\",\n                \"country_code\": \"91\",\n                \"phone_number\": \"9663589657\",\n                \"email\": \"booker_lang@hagenes.test\",\n                \"activated\": true,\n                \"last_visit_at\": null,\n                \"gender\": \"male\",\n                \"date_of_birth\": \"2002-04-09\",\n                \"role\": \"teacher\",\n                \"students\": 0\n            }\n        },\n        {\n            \"id\": \"12\",\n            \"type\": \"account\",\n            \"attributes\": {\n                \"id\": 12,\n                \"full_name\": \"School Principal\",\n                \"user_name\": \"@principal\",\n                \"full_phone_number\": \"919876543210\",\n                \"country_code\": \"91\",\n                \"phone_number\": \"9876543210\",\n                \"email\": \"principal@school.com\",\n                \"activated\": true,\n                \"last_visit_at\": null,\n                \"gender\": \"male\",\n                \"date_of_birth\": \"1990-01-01\",\n                \"role\": \"principal\",\n                \"students\": 0\n            }\n        },\n        {\n            \"id\": \"13\",\n            \"type\": \"account\",\n            \"attributes\": {\n                \"id\": 13,\n                \"full_name\": \"Teacher1\",\n                \"user_name\": \"@teacher142261\",\n                \"full_phone_number\": null,\n                \"country_code\": null,\n                \"phone_number\": null,\n                \"email\": \"teacher1@gmail.com\",\n                \"activated\": true,\n                \"last_visit_at\": null,\n                \"gender\": \"male\",\n                \"date_of_birth\": \"2000-04-05\",\n                \"role\": \"teacher\",\n                \"students\": 0\n            }\n        },\n        {\n            \"id\": \"14\",\n            \"type\": \"account\",\n            \"attributes\": {\n                \"id\": 14,\n                \"full_name\": \"Teacher1\",\n                \"user_name\": \"@teacher131486\",\n                \"full_phone_number\": null,\n                \"country_code\": null,\n                \"phone_number\": null,\n                \"email\": \"teacher2@gmail.com\",\n                \"activated\": true,\n                \"last_visit_at\": null,\n                \"gender\": \"male\",\n                \"date_of_birth\": \"2000-04-05\",\n                \"role\": \"teacher\",\n                \"students\": 0\n            }\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "show teacher account",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{principal_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/user/accounts/10",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"accounts",
+								"10"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "show teacher account",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{principal_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:3000/user/accounts/15",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"user",
+										"accounts",
+										"15"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"f3e4ec68b7b564d48daebadb9924d4ac\""
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "x-request-id",
+									"value": "2eb80b5f-6581-4e9f-9dbe-054d8e1ba5dc"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.239344"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.02, sql.active_record;dur=1.41, instantiation.active_record;dur=0.27, process_action.action_controller;dur=51.54"
+								},
+								{
+									"key": "Content-Length",
+									"value": "322"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"15\",\n        \"type\": \"account\",\n        \"attributes\": {\n            \"id\": 15,\n            \"full_name\": \"Teacher10\",\n            \"user_name\": \"@teacher1021675\",\n            \"full_phone_number\": null,\n            \"country_code\": null,\n            \"phone_number\": null,\n            \"email\": \"teacher10@gmail.com\",\n            \"activated\": true,\n            \"last_visit_at\": null,\n            \"gender\": \"male\",\n            \"date_of_birth\": \"2000-04-05\",\n            \"role\": \"teacher\",\n            \"students\": 0\n        }\n    }\n}"
+						},
+						{
+							"name": "account not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{principal_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:3000/user/accounts/10",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"user",
+										"accounts",
+										"10"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "x-request-id",
+									"value": "12a0de9c-681e-4b42-87b0-44d7cfa0cf86"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.195031"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.01, sql.active_record;dur=0.27, instantiation.active_record;dur=0.08, halted_callback.action_controller;dur=0.01, process_action.action_controller;dur=6.05"
+								},
+								{
+									"key": "Content-Length",
+									"value": "32"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errors\": [\n        \"Account not found\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "delete teacher account",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{principal_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/user/accounts/8",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"accounts",
+								"8"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "delete teacher account",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{principal_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:3000/user/accounts/8",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"user",
+										"accounts",
+										"8"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"db59ea646135efaa47ec7053116e43ba\""
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "x-request-id",
+									"value": "195b53b7-cb9c-41f4-91f7-bb25e697a3e0"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.503247"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.01, sql.active_record;dur=7.12, instantiation.active_record;dur=0.34, transaction.active_record;dur=65.89, process_action.action_controller;dur=85.65"
+								},
+								{
+									"key": "Content-Length",
+									"value": "45"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"messages\": [\n        \"Account deleted successfully\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "update teacher (self only)",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{teacher_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"full_name\": \"Teacher10\",\r\n    \"email\": \"teacher10@gmail.com\",\r\n    \"password\": \"password\",\r\n    \"gender\": \"Male\",\r\n    \"date_of_birth\": \"05-04-2000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/user/accounts",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"accounts"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "update teacher (self only)",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{teacher_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"full_name\": \"Teacher10\",\r\n    \"email\": \"teacher10@gmail.com\",\r\n    \"password\": \"password\",\r\n    \"gender\": \"Male\",\r\n    \"date_of_birth\": \"05-04-2000\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/user/accounts",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"user",
+										"accounts"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"f3e4ec68b7b564d48daebadb9924d4ac\""
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "x-request-id",
+									"value": "cdc02c26-735e-473c-bce1-f5156a83ae6b"
+								},
+								{
+									"key": "x-runtime",
+									"value": "7.530143"
+								},
+								{
+									"key": "server-timing",
+									"value": "sql.active_record;dur=15.08, start_processing.action_controller;dur=0.04, instantiation.active_record;dur=57.61, unpermitted_parameters.action_controller;dur=0.01, transaction.active_record;dur=32.74, process_action.action_controller;dur=720.66"
+								},
+								{
+									"key": "Content-Length",
+									"value": "322"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"15\",\n        \"type\": \"account\",\n        \"attributes\": {\n            \"id\": 15,\n            \"full_name\": \"Teacher10\",\n            \"user_name\": \"@teacher1021675\",\n            \"full_phone_number\": null,\n            \"country_code\": null,\n            \"phone_number\": null,\n            \"email\": \"teacher10@gmail.com\",\n            \"activated\": true,\n            \"last_visit_at\": null,\n            \"gender\": \"male\",\n            \"date_of_birth\": \"2000-04-05\",\n            \"role\": \"teacher\",\n            \"students\": 0\n        }\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "students",
+			"item": [
+				{
+					"name": "student",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{teacher_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"full_name\": \"Std 5\",\r\n    \"subject\": \"Physics\",\r\n    \"marks\": 61\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/students",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "student Copy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJpZCI6NSwiZXhwIjoxNzMyNzM1ODE4fQ.zr94AgKOleGuGd4eM2NDVQQKsHgPlYqkxDZlBxVf4W9XmJ6XQACmY9gZQ3Yz38bhFTe51W5xpZRpWJtZGcIhCg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"full_name\": \"Std 5\",\r\n    \"subjects_attributes\": [\r\n        {\r\n            \"name\": \"Physics\",\r\n            \"marks\": 60\r\n        },\r\n        {\r\n            \"name\": \"Maths\",\r\n            \"marks\": 80\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/students",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "student Copy",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJpZCI6NSwiZXhwIjoxNzMyNzM1ODE4fQ.zr94AgKOleGuGd4eM2NDVQQKsHgPlYqkxDZlBxVf4W9XmJ6XQACmY9gZQ3Yz38bhFTe51W5xpZRpWJtZGcIhCg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    // \"full_name\": \"Std 5\",\r\n    \"subjects_attributes\": [\r\n        {\r\n            \"id\": 2,\r\n            \"name\": \"Physic\",\r\n            \"marks\": 75,\r\n            \"_destroy\": 0\r\n        // },\r\n        // {\r\n        //     \"name\": \"Maths\",\r\n        //     \"marks\": 80\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/students/6",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"students",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "student Copy 2",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJpZCI6NSwiZXhwIjoxNzMyNzM1ODE4fQ.zr94AgKOleGuGd4eM2NDVQQKsHgPlYqkxDZlBxVf4W9XmJ6XQACmY9gZQ3Yz38bhFTe51W5xpZRpWJtZGcIhCg",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/students",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"students"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "principal_token",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "teacher_token",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
