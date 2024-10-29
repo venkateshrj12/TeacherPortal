@@ -1,6 +1,8 @@
 module User
   class AccountsController < User::ApplicationController
-    before_action :validate_jwt, except: :create
+    before_action :validate_jwt
+    before_action :validate_principal, except: [:update]
+    before_action :set_user_account, only: [:show, :destroy]
 
     # GET /user/accounts
     def index
@@ -18,26 +20,22 @@ module User
       @user_account = User::Account.find_by(id: params[:id])
       if @user_account
         render json: AccountSerializer.new(@user_account).serializable_hash
-      else
-        render json:  { errors: ['Account not found'] }, status: :not_found
       end
     end
 
     # POST /user/accounts
-    def create #signup
+    def create
       @user_account = User::Account.new(user_account_params)
       if @user_account.save
-        expiration = Time.now + 30.days
-        auth_token = ::JsonWebToken.encode({id: @user_account.id}, expiration)
-        render json: AccountSerializer.new(@user_account, meta: {auth_token: auth_token}), status: :created
+        render json: AccountSerializer.new(@user_account), status: :created
       else
         render json: {errors: @user_account.errors.full_messages}, status: :unprocessable_entity
       end
     end
 
-    # PATCH/PUT /user/accounts/1
+    # PATCH /user/accounts
     def update
-      if @current_user.update(user_account_params)
+      if @current_user.update(user_account_update_params)
         render json: AccountSerializer.new(@current_user).serializable_hash
       else
         render json: {errors: @current_user.errors.full_messages}, status: :unprocessable_entity
@@ -46,7 +44,7 @@ module User
 
     # DELETE /user/accounts/1
     def destroy
-      @current_user&.destroy!
+      @user_account&.destroy!
       render json: {messages: ["Account deleted successfully"]}, status: :ok
     end
 
@@ -54,7 +52,25 @@ module User
 
     # Only allow a list of trusted parameters through.
     def user_account_params
-      params.permit(:full_name, :full_phone_number, :email, :password, :password_confirmation, :user_name, :gender, :date_of_birth)
+      params.permit(:full_name, :full_phone_number, :email, :password, :password_confirmation, :user_name, :gender, :date_of_birth, :role)
     end
+
+    def user_account_update_params
+      params.permit(:full_name, :full_phone_number, :email, :password, :user_name, :gender, :date_of_birth)
+    end
+
+    def set_user_account
+      @user_account = User::Account.find_by(id: params[:id])
+      unless @user_account
+        render json:  { errors: ['Account not found'] }, status: :not_found
+      end
+    end
+
+    def validate_principal
+      unless @current_user.role == "principal"
+        render json: {errors: ['You dont have permission to do this action']}, status: :unprocessable_entity
+      end
+    end
+
   end
 end

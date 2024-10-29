@@ -1,5 +1,7 @@
 module User
   class LoginController < User::ApplicationController
+    before_action :validate_jwt, only: :me
+    
     def create # login
       login_creds = params[:login_creds]
       password = params[:password]
@@ -18,6 +20,14 @@ module User
         end
       else
         render json: {errors: ['Account not found']}, status: :unprocessable_entity
+      end
+    end
+
+    def me
+      if @current_user
+        render json: LoggedUserSerializer.new(@current_user).serializable_hash
+      else
+        render json: {errors: ['You are not logged in']}, status: :unauthorized
       end
     end
 

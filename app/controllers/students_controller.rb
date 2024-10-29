@@ -20,13 +20,21 @@ class StudentsController < ApplicationController
 
   # POST /students
   def create
-    @student = Student.new(student_params)
+    # find the student and subecjts in db
+    @student = Student.find_by(full_name: student_params[:full_name], subject: student_params[:subject])
 
-    if @student.save
-      render json: StudentSerializer.new(@student).serializable_hash, status: :created
+    if  @student
+      # update if record is available
+      @student.update(marks:  student_params[:marks])
     else
-      render json: {errors: @student.errors.full_messages}, status: :unprocessable_entity
+      # create new record if record is not available
+      @student = Student.new(student_params)
+      unless @student.save
+        return render json: {errors: @student.errors.full_messages}, status: :unprocessable_entity
+      end
     end
+
+    render json: StudentSerializer.new(@student).serializable_hash, status: :created
   end
 
   # PATCH/PUT /students/1
@@ -55,8 +63,7 @@ class StudentsController < ApplicationController
     end
 
     # Only allow a list of trusted parameters through.
-    # use subjects_attributes to accept nested attributes
     def student_params
-      params.permit(:full_name, subjects_attributes: [:id, :name, :marks, :_destroy]).merge(user_account: @current_user)
+      params.permit(:full_name, :subject, :marks).merge(user_account: @current_user)
     end
 end

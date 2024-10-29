@@ -4,14 +4,15 @@ RSpec.describe "/students", type: :request do
   before(:all) do
     @teacher = create(:account)
     @student = create(:student, user_account: @teacher)
-    @subjects = create_list(:subject, 5, student: @student)
 
     @token = ::JsonWebToken.encode(id: @teacher.id)
   end
-  let(:valid_attributes) {
-    attributes_for(:student).merge( subjects_attributes: [ attributes_for(:subject), attributes_for(:subject) ] ) 
-  }
-  
+  let(:valid_attributes) { attributes_for(:student) }
+  let(:existing_attributes) {{
+    full_name: @student.full_name,
+    subject: @student.subject,
+    marks: 20
+  }}
   let(:invalid_attributes) { attributes_for(:invalid_student, user_account: @teacher) }
   let(:valid_headers) { { Authorization:  @token } }
 
@@ -46,6 +47,12 @@ RSpec.describe "/students", type: :request do
       it "renders a JSON response with the new student" do
         post students_url,
              params: valid_attributes, headers: valid_headers, as: :json
+        expect(response).to have_http_status(:created)
+      end
+
+      it "updates existing student marks" do
+        post students_url,
+             params: existing_attributes, headers: valid_headers, as: :json
         expect(response).to have_http_status(:created)
       end
     end

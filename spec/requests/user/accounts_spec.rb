@@ -2,8 +2,10 @@ require 'rails_helper'
 
 RSpec.describe "/user/accounts", type: :request do
   before(:all) do
+    @principal = create(:account, role: "principal")
     @account = create(:account)
-    @token = ::JsonWebToken.encode({id: @account.id})
+    @token = ::JsonWebToken.encode({id: @principal.id})
+    @token1 = ::JsonWebToken.encode({id: @account.id})
 
     create_pair(:account)
   end
@@ -37,7 +39,7 @@ RSpec.describe "/user/accounts", type: :request do
     context "with valid parameters" do
       it "creates a new User::Account" do
         expect {
-          post user_accounts_url, params: valid_attributes, as: :json
+          post user_accounts_url, params: valid_attributes, headers: {Authorization: @token}, as: :json
         }.to change(User::Account, :count).by(1)
         expect(json_response["data"]["attributes"]["full_name"]).to eq("New user")
       end
@@ -46,7 +48,7 @@ RSpec.describe "/user/accounts", type: :request do
     context "with invalid parameters" do
       it "does not create a new User::Account" do
         expect {
-          post user_accounts_url, params: { user_account: invalid_attributes }, as: :json }.to change(User::Account, :count).by(0)
+          post user_accounts_url, params: { user_account: invalid_attributes }, headers: {Authorization: @token}, as: :json }.to change(User::Account, :count).by(0)
         expect(json_response["errors"]).to include("Password can't be blank")
       end
     end
@@ -57,9 +59,9 @@ RSpec.describe "/user/accounts", type: :request do
       it "updates the requested user_account" do
         patch user_accounts_url, params: { full_name: "New name" }, headers: {Authorization: @token}, as: :json
         expect(json_response["data"]["attributes"]["full_name"]).to eq("New name")
-        @account.reload
+        @principal.reload
         expect(response).to have_http_status(:ok)
-        expect(@account.full_name).to eq("New name")
+        expect(@principal.full_name).to eq("New name")
       end
     end
 
@@ -72,11 +74,17 @@ RSpec.describe "/user/accounts", type: :request do
     end
   end
 
-  describe "DELETE /destroy" do
+  describe "DELETE /destroy/id" do
     it "destroys the current user account" do
-      delete user_accounts_url, headers: {Authorization: @token}, as: :json
+      delete user_account_url(@account), headers: {Authorization: @token}, as: :json
       expect(response).to have_http_status(:ok)
       expect(json_response["messages"]).to  eq(["Account deleted successfully"])
+    end
+
+    it "gives permission error" do
+      delete user_account_url(@account), headers: {Authorization: @token1}, as: :json
+      expect(response).to have_http_status(:unprocessable_entity)
+      expect(json_response["errors"]).to  eq(["You dont have permission to do this action"])
     end
   end
 

@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   
   namespace :user do
     resources :login
+    get "/me", to: "login#me"
+    
     resources :accounts do
       collection do
         patch :update
