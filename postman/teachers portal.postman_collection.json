@@ -1225,7 +1225,243 @@
 			"name": "students",
 			"item": [
 				{
-					"name": "student",
+					"name": "students list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{teacher_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/students?page=1&per_page=10",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"students"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "per_page",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "students list",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{teacher_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:3000/students?page=1&per_page=10",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"students"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "per_page",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"9938553c829b2e0592ffa3860c1d4759\""
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "x-request-id",
+									"value": "201e7ed6-a0ae-49f0-90f6-8c2abbac75f4"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.297856"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.01, sql.active_record;dur=1.28, instantiation.active_record;dur=24.29, process_action.action_controller;dur=57.53"
+								},
+								{
+									"key": "Content-Length",
+									"value": "205"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"pagination_details\": {\n        \"page\": 1,\n        \"per_page\": 10,\n        \"records\": 1,\n        \"total_records\": 1,\n        \"total_pages\": 1\n    },\n    \"data\": [\n        {\n            \"id\": \"2\",\n            \"type\": \"student\",\n            \"attributes\": {\n                \"id\": 2,\n                \"full_name\": \"Std 5\",\n                \"subject\": \"Physics\",\n                \"marks\": 1010\n            }\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "show student",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{teacher_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/students/2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"students",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "show student",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{teacher_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:3000/students/2",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"students",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"a0ea23d0c148e5845f80890fe3743e0e\""
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "x-request-id",
+									"value": "5e10ac20-4954-48eb-a998-3de368ead1b1"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.158703"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.01, sql.active_record;dur=0.24, instantiation.active_record;dur=0.31, process_action.action_controller;dur=8.02"
+								},
+								{
+									"key": "Content-Length",
+									"value": "111"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"2\",\n        \"type\": \"student\",\n        \"attributes\": {\n            \"id\": 2,\n            \"full_name\": \"Std 5\",\n            \"subject\": \"Physics\",\n            \"marks\": 1010\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "create student",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -1237,7 +1473,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"full_name\": \"Std 5\",\r\n    \"subject\": \"Physics\",\r\n    \"marks\": 61\r\n}",
+							"raw": "{\r\n    \"full_name\": \"Std 5\",\r\n    \"subject\": \"Physics\",\r\n    \"marks\": 101\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1255,55 +1491,114 @@
 							]
 						}
 					},
-					"response": []
-				},
-				{
-					"name": "student Copy",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzUxMiJ9.eyJpZCI6NSwiZXhwIjoxNzMyNzM1ODE4fQ.zr94AgKOleGuGd4eM2NDVQQKsHgPlYqkxDZlBxVf4W9XmJ6XQACmY9gZQ3Yz38bhFTe51W5xpZRpWJtZGcIhCg",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"full_name\": \"Std 5\",\r\n    \"subjects_attributes\": [\r\n        {\r\n            \"name\": \"Physics\",\r\n            \"marks\": 60\r\n        },\r\n        {\r\n            \"name\": \"Maths\",\r\n            \"marks\": 80\r\n        }\r\n    ]\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+					"response": [
+						{
+							"name": "create student",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{teacher_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"full_name\": \"Std 5\",\r\n    \"subject\": \"Physics\",\r\n    \"marks\": 65\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/students",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"students"
+									]
 								}
-							}
-						},
-						"url": {
-							"raw": "localhost:3000/students",
-							"host": [
-								"localhost"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"48376dd3c48b6faf9c0e70ceb163747e\""
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "x-request-id",
+									"value": "3236553b-6f25-4621-8d81-5d2abd788c22"
+								},
+								{
+									"key": "x-runtime",
+									"value": "2.885632"
+								},
+								{
+									"key": "server-timing",
+									"value": "sql.active_record;dur=42.82, start_processing.action_controller;dur=0.01, instantiation.active_record;dur=29.29, unpermitted_parameters.action_controller;dur=0.04, process_action.action_controller;dur=86.72"
+								},
+								{
+									"key": "Content-Length",
+									"value": "109"
+								}
 							],
-							"port": "3000",
-							"path": [
-								"students"
-							]
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"2\",\n        \"type\": \"student\",\n        \"attributes\": {\n            \"id\": 2,\n            \"full_name\": \"Std 5\",\n            \"subject\": \"Physics\",\n            \"marks\": 65\n        }\n    }\n}"
 						}
-					},
-					"response": []
+					]
 				},
 				{
-					"name": "student Copy",
+					"name": "update student",
 					"request": {
 						"method": "PATCH",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzUxMiJ9.eyJpZCI6NSwiZXhwIjoxNzMyNzM1ODE4fQ.zr94AgKOleGuGd4eM2NDVQQKsHgPlYqkxDZlBxVf4W9XmJ6XQACmY9gZQ3Yz38bhFTe51W5xpZRpWJtZGcIhCg",
+								"value": "{{teacher_token}}",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    // \"full_name\": \"Std 5\",\r\n    \"subjects_attributes\": [\r\n        {\r\n            \"id\": 2,\r\n            \"name\": \"Physic\",\r\n            \"marks\": 75,\r\n            \"_destroy\": 0\r\n        // },\r\n        // {\r\n        //     \"name\": \"Maths\",\r\n        //     \"marks\": 80\r\n        }\r\n    ]\r\n}",
+							"raw": "{\r\n    \"full_name\": \"Std 3\",\r\n    \"subject\": \"Physics\",\r\n    \"marks\": 65\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1311,42 +1606,220 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3000/students/6",
+							"raw": "localhost:3000/students/1",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
 								"students",
-								"6"
+								"1"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "update student",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{teacher_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"full_name\": \"Std 3\",\r\n    \"subject\": \"Physics\",\r\n    \"marks\": 65\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/students/3",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"students",
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"275c693be4e8c98a2d2737d98df3fa96\""
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "x-request-id",
+									"value": "2533d05b-0bca-4944-873f-e729fd17bb93"
+								},
+								{
+									"key": "x-runtime",
+									"value": "2.752665"
+								},
+								{
+									"key": "server-timing",
+									"value": "sql.active_record;dur=4.81, start_processing.action_controller;dur=0.01, instantiation.active_record;dur=28.54, unpermitted_parameters.action_controller;dur=0.01, process_action.action_controller;dur=55.67"
+								},
+								{
+									"key": "Content-Length",
+									"value": "109"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"3\",\n        \"type\": \"student\",\n        \"attributes\": {\n            \"id\": 3,\n            \"full_name\": \"Std 3\",\n            \"subject\": \"Physics\",\n            \"marks\": 65\n        }\n    }\n}"
+						}
+					]
 				},
 				{
-					"name": "student Copy 2",
+					"name": "delete student",
 					"request": {
-						"method": "GET",
+						"method": "DELETE",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzUxMiJ9.eyJpZCI6NSwiZXhwIjoxNzMyNzM1ODE4fQ.zr94AgKOleGuGd4eM2NDVQQKsHgPlYqkxDZlBxVf4W9XmJ6XQACmY9gZQ3Yz38bhFTe51W5xpZRpWJtZGcIhCg",
+								"value": "{{teacher_token}}",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "localhost:3000/students",
+							"raw": "localhost:3000/students/1",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
-								"students"
+								"students",
+								"1"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "delete student",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{teacher_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:3000/students/1",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"students",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"7c4b5be717b671a102f8e8391b036133\""
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "x-request-id",
+									"value": "71aad653-c6de-4cd1-875c-1373700d51b8"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.138703"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.01, sql.active_record;dur=3.49, instantiation.active_record;dur=0.21, transaction.active_record;dur=9.85, process_action.action_controller;dur=20.24"
+								},
+								{
+									"key": "Content-Length",
+									"value": "51"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"messages\": [\n        \"Student record deleted succesfully\"\n    ]\n}"
+						}
+					]
 				}
 			]
 		}

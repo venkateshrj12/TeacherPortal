@@ -24,5 +24,5 @@ Rails.application.routes.draw do
   resources :students
 
   # this route should be at the end to give the error for invalid route
-  get '/*a', to: 'application#not_found'
+  match "*path", to: "application#not_found", via: :all
 end

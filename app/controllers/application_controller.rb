@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::API
   before_action :set_pagination_data
+  rescue_from ActionController::RoutingError, with: :not_found
 
   def not_found
     render json: { errors: ['Page not found'] }, status: :not_found
