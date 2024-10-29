@@ -47,14 +47,22 @@ group :development do
   gem "error_highlight", ">= 0.4.0", platforms: [:ruby]
 end
 
-gem "rspec-rails"
-gem 'factory_bot_rails'
-gem 'faker'
-gem "simplecov", require: false, group: :test
-gem 'byebug'
-gem 'phonelib'
-gem 'jwt'
-gem 'fast_jsonapi'
-gem 'kaminari'
-gem 'timecop'
-gem 'database_cleaner-active_record'
+group :development, :test do
+  gem 'phonelib'
+  gem 'jwt'
+  gem 'fast_jsonapi'
+  gem 'kaminari'
+
+  # gem 'activeadmin'
+  # gem 'devise'
+  # gem 'sprockets-rails'
+  # gem 'sassc-rails'
+  
+  gem "rspec-rails"
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem "simplecov", require: false, group: :test
+  gem 'byebug'
+  gem 'timecop'
+  gem 'database_cleaner-active_record'
+end
